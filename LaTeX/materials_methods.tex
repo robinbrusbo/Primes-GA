@@ -8,13 +8,21 @@ The most important resource to be used in this study will be Wikipedia and the c
 As of today, the largest primes are found using supercomputers running these algorithms. Using a supercomputer is not plausible for this study, therefore the maxmimum limit for primes will be $10^{14}$.
 
 \subsection{Methods}
+During the primality testing \cite{prime:test} there will be two test cases for the algorithms. The first one will determine if $n$ is a prime or composite, and the second one will generate the largest prime within a time limit. At the start of the code a driver function will be defined to serve as the "starter" code for the program - defining what test to perform. It will call a primality testing function called \textbf{primeTest} which will return a boolean\footnote{A function that returns $True$ or $False$} value. 
 
-During the primality testing \cite{prime:test}, a driver function will be used to call the primality testing function, called \textbf{primeTest}. The driver function will be called to start a timer and execute one of the following algorithms:
+Two groups of algorithms will be tested: the "simple" methods and the probabilistic tests. The driver function will be called to start a timer and execute one of the following algorithms:
 \begin{enumerate}
-    \item Brute-force%O(N)
-    \item Smart brute-force %O(sqrt(n))
-    \item Sieve of Eratosthenes \cite{prime:sieve}
-    \item algorithm 4
+    \item Heuristic tests
+    \begin{enumerate}
+        \item Brute-force%O(N)
+        \item Smart Brute-force %O(sqrt(n))
+        \item Sieve of Eratosthenes \cite{prime:sieve}
+    \end{enumerate}
+    \item Probabilistic tests \cite{prime:test}
+    \begin{enumerate}
+        \item Fermat Primality
+        \item Miller–Rabin
+    \end{enumerate}
 \end{enumerate}
 
 The function will be called upon three times to average an "accurate" runtime. The same integers will be used across all tests. These runtimes are noted and later compared in the discussion. The following Python code describes the setup:
