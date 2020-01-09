@@ -8,7 +8,7 @@ Prime numbers have been known to mankind since Ancient Greece, \cite{prime}
 
 
 
-\subsection{Purpose}
+\subsection{Aim}
 The purpose of this essay is to investigate prime numbers. Investigating all the aspects of prime numbers would be a near impossible task; therefore, this essay will focus more on learning about the methods and algorithms of finding new primes. The study will also present ways to prove that a given number, $n$, is indeed prime. Primes are without a doubt beautiful mathematically, but what real life application do primes have?
 \newline
 \\*
@@ -20,76 +20,5 @@ The relevant questions for this study are the following:
     \item Which algorithm is the most efficient and why?
     \item Why are primes even relevant to us?
 \end{enumerate}
-
-\subsection{Definitions}
-In order to fully understand this essay, some key concepts have to be adressed and understood.
-
-\subsubsection{What is a prime?}
-Prime numbers are defined as \textit{positive integers} which only have the factors 1 and itself. Thus $4$ is not a prime since $4 = 2 * 2$. On the other hand $5$ is a prime since the only divisors of $5$ is $1$ and $5$. 
-
-If a number, $n$, is not prime, it is refered to as a \textit{composite number}.
-
-\subsubsection{The Fundamental Theory of Arithmetic}
-The Fundamental Theory of Arithmetic \cite{theorem:arithmetic} states that all integers greater than $1$ is either a prime, or can be expressed as a product of primes in a unique way. This means that all natural numbers, except for $1$, has its own factorization containing only primes, unless it is a prime itself.
-\newline
-\\*
-Important to know is that there is an infinite amount of primes. The proof is a quite easy by contradiction, but nonetheless beautiful:
-
-\begin{mdframed}
-    Assume that there is a finite amount of primes and make a list of them:
-
-    $p_1, p_2, p_3, p_4, p_5, ...$ 
-    \newline
-    \\*
-    Let the constant $Q$ be the product of all the primes in the list and add 1:
-
-    $Q = p_1 * p_2 * p_3, ... + 1$
-    \newline
-    \\*
-    According to the fundamental theorem of arithmetic, $Q$ must be a prime since none of the primes in the list divide $Q$ evenly because of the $1$; therefore making the list incomplete and proving that you cannot make a finite list of all primes. 
-\end{mdframed}
-
-\subsubsection{The Prime Number Theorem}
-The Prime Number Theorem \cite{theorem:prime_num} describes approximately how many primes there are less than or equal to a given number. The function $\pi(N) \sim \frac{N}{ln(N)}$ gives the expected amount of primes below a certain $N$. Graphing this function shows that primes become less common for greater $N$.
-
-\begin{center}
-\begin{tikzpicture}
-\begin{axis}[
-    axis lines = left,
-    xlabel = $N$,
-    ylabel = {},
-]
-\addplot [
-    domain=1:100000, 
-    samples=100, 
-    color=red,
-]
-{x/ln(x)};
-\addlegendentry{$\frac{N}{ln(N)}$}
-
-\addplot [
-    domain=1:100000, 
-    samples=100, 
-    color=blue,
-    ]
-    {x};
-\addlegendentry{$N$}
-
-\end{axis}
-\end{tikzpicture}
-\end{center}
-
-This proves that primes do not show up linearaly, meaning a computer that is twice as powerful will \textit{not} produce twice as many primes. Instead, the most important and crucial part of generating and verifying primes are the \textit{algorithms}.
-
-\subsubsection{Time Complexity}
-
-Time complexity \cite{theorem:time_comp} is a concept within computer science, which describes the approximate time for a program to complete. The study will make heavy use of the Big O Notation \cite{theorem:big_O}, which notates how the run time increases as the input size increases. For example, $O(N)$ will grow linearly with the input size. Increasing the input size by a factor of 10, will also increase the run time by a factor of 10, as such $O(10N)$. On the other hand, $O(log(n))$ grows logarithmically, which is far more efficient for bigger input sizes. 
-
-This is very important when it comes to testing large numbers, because it makes it easier to determine whether the program will succeed or run for a \textit{very long time}\footnote{Some programs will not finish until the sun explodes, which is quite impractical.}. Therefore it is important to write as efficient algorithms as possible, considering the fact that the largest known prime has $24,862,048$ digits. 
-
-%3. explain mersenne primes
-%4. pi(n) amount fo priems
-%4. explain (something more maybe)
-
 
 \end{document}
