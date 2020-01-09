@@ -1,0 +1,59 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\subsection{Resources}
+
+The most important resource to be used in this study will be Wikipedia and the countless articles written regarding this subject. The programming language used to implement and time the algorithms will be Python\footnote{Although Python is one of the slowest languages, the simplicity of it makes it an invaluable tool for this study.} \cite{python}.
+
+As of today, the largest primes are found using supercomputers running these algorithms. Using a supercomputer is not plausible for this study, therefore the maxmimum limit for primes will be $10^{14}$.
+
+\subsection{Methods}
+
+During the primality testing \cite{prime:test}, a driver function will be used to call the primality testing function, called \textbf{primeTest}. The driver function will be called to start a timer and execute one of the following algorithms:
+\begin{enumerate}
+    \item Brute-force%O(N)
+    \item Smart brute-force %O(sqrt(n))
+    \item Sieve of Eratosthenes \cite{prime:sieve}
+    \item algorithm 4
+\end{enumerate}
+
+The function will be called upon three times to average an "accurate" runtime. The same integers will be used across all tests. These runtimes are noted and later compared in the discussion. The following Python code describes the setup:
+
+\begin{python}
+    import time
+
+    driver()
+
+    def driver():
+        numbers = [...]
+        times = []
+        for n in numbers:
+            start = time.time()
+            primeTest(n)
+            runTime = time.time() - start
+            times.append(runTime)
+        print(sum(times) / len(times))
+
+    def primeTest(n):
+        # Insert the algorithm here
+\end{python}
+
+To generate the largest prime within 30 seconds, the \textbf{primeTest} function will remain the same, however the driver function will recieve some changes. Study the following code:
+
+\begin{python}
+    def driver():
+        primes = []
+        timelimit = 30
+        start = time.time()
+        for n in range(time.time() - start < timelimit):
+            if primeTest(n):
+                primes.append(n)
+        print(max(primes))
+\end{python}
+
+\subsection{Algorithms}
+Explain the algorithms and "tricks" to make them run faster. The results must only be tables of runtimes of the different algorithms.
+
+Sieve of Erathsoneirnsn is 
+
+\end{document}
