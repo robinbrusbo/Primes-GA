@@ -32,43 +32,95 @@ Important to know is that there is an infinite amount of primes. The proof is a 
 \subsection{The Prime Number Theorem}
 The Prime Number Theorem \cite{theorem:prime_num} describes approximately how many primes there are less than or equal to a given number. The function $\pi(N) \sim \frac{N}{ln(N)}$ gives the expected amount of primes below a certain $N$. Graphing this function shows that primes become less common for greater $N$.
 
-\begin{center}
-\begin{tikzpicture}
-\begin{axis}[
-    axis lines = left,
-    xlabel = $N$,
-    ylabel = {},
-]
-\addplot [
-    domain=1:100000, 
-    samples=100, 
-    color=red,
-]
-{x/ln(x)};
-\addlegendentry{$\frac{N}{ln(N)}$}
+\begin{figure}
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis lines = left,
+                xlabel = $N$,
+                ylabel = {},
+            ]
+            \addplot [
+                domain=1:100000, 
+                samples=100, 
+                color=red,
+            ]
+            {x/ln(x)};
+            \addlegendentry{$\frac{N}{ln(N)}$}
+            
+            \addplot [
+                domain=1:100000, 
+                samples=100, 
+                color=blue,
+                ]
+                {x};
+            \addlegendentry{$N$}
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+\caption{The graph of $\pi(N)$ and $N$ from $0$ to $10^{5}$ letting us compare the relationship between the number $N$ and the approximate amount of primes below it.}
+\end{figure}
 
-\addplot [
-    domain=1:100000, 
-    samples=100, 
-    color=blue,
-    ]
-    {x};
-\addlegendentry{$N$}
-
-\end{axis}
-\end{tikzpicture}
-\end{center}
-
-This proves that primes do not show up linearaly, meaning a computer that is twice as powerful will \textit{not} produce twice as many primes. Instead, the most important and crucial part of generating and verifying primes are the \textit{algorithms}.
+This proves that primes do not show up linearaly, meaning a computer that is twice as powerful will \textit{not} produce twice as many primes. Instead, the most important and crucial part of generating and verifying primes is the optimization of the \textit{algorithms}.
 
 \subsection{Time Complexity}
 
-Time complexity \cite{theorem:time_comp} is a concept within computer science, which describes the approximate time for a program to complete. The study will make heavy use of the Big O Notation \cite{theorem:big_O}, which notates how the run time increases as the input size increases. For example, $O(N)$ will grow linearly with the input size. Increasing the input size by a factor of 10, will also increase the run time by a factor of 10, as such $O(10N)$. On the other hand, $O(log(n))$ grows logarithmically, which is far more efficient for bigger input sizes. 
+Time complexity \cite{theorem:time_comp} is a concept within computer science, which describes the approximate time for a program to complete. The study will make heavy use of the Big O Notation \cite{theorem:big_O}, which notates how the run time increases as the input size increases. For example, $O(N)$ will grow linearly with the input size. Increasing the input size by a factor of 10, will also increase the run time by a factor of 10, as such $O(10N)$. On the other hand, $O(log(n))$ grows logarithmically, which is far more efficient for bigger input sizes, as $O(log(N))$ is strictly smaller than $N$ for large enough values. It is important to note that when using logarithms in these instances, the base is irrelevant. The proof as to why the base is irrelevant will not be provided by this study.
+\newline
+\\*
+This is very important when it comes to testing large numbers, because it makes it easier to determine whether the program will succeed, or run for a \textit{very long time}\footnote{Some programs will not finish until the sun explodes, which is quite impractical.}. Therefore it is important to write as efficient algorithms as possible, considering the fact that the largest known verified prime has $24,862,048$ digits \cite{prime:largest_digits}. 
 
-This is very important when it comes to testing large numbers, because it makes it easier to determine whether the program will succeed or run for a \textit{very long time}\footnote{Some programs will not finish until the sun explodes, which is quite impractical.}. It is therefore important to write as efficient algorithms as possible, considering the fact that the largest known prime has $24,862,048$ digits \cite{prime:largest_digits}. 
+\subsubsection{Examples of Big O Notation}
+
+A program that runs in $O(N)$ would be a function that inputs an integer $N$ and outputs every number up to $N$:
+\begin{python}
+def linearTime(N):
+    for number in range(N):
+        print(number)
+\end{python}
+
+Since the program runs in $O(N)$ time, increasing the input by a factor of $10$ would also increase the number of operations done by a factor of $10$.
+\newline
+\\*
+The second example is a program that runs in quadratic time, i.e. $O(N^{2})$. Instead of printing every number up to $N$ once, this program prints every number $N$ times.
+
+\begin{python}
+    def quadraticTime(N):
+        for number in range(N):
+            for number in range(N):
+                print(number)
+\end{python}
+
+\vspace{5mm}
+
+The fourth and last example will be about $O(log n)$. The algorithm that is used in this example is called \textit{Binary Search} \cite{binary_search}. It's an algorithm used for quickly guessing a number between, for example, $1$ and $100$. Usually two people are required to play this guessing game, but with a computer the user will be guessing whether it's true or false, while the computer generates a random number.
+
+\begin{python}
+    import random as rand
+
+    def binarySearch():
+        begin = 1
+        end = 100
+        valueToGuess = rand.randint(1, 101)
+        while True:
+            mid = (begin + end) / 2
+            guess = int(input())
+
+            if guess == valueToGuess:
+                print("Right!")
+                return
+            elif guess > valueToGuess:
+                end = mid + 1
+                print("Lower!")
+            elif guess < valueToGuess:
+                begin = mid - 1
+                print("Higher!")                
+
+\end{python}
 
 %3. explain mersenne primes
 %4. pi(n) amount fo priems
 %4. explain (something more maybe)
+
 
 \end{document}
