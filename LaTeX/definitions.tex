@@ -72,6 +72,9 @@ This is very important when it comes to testing large numbers, because it makes 
 
 \subsubsection{Examples of Big O Notation}
 
+It is important to have an idea of how the Big O Notation is applied in code, therefore the following examples will show it thoroughly.
+\newline
+\\*
 A program that runs in $O(N)$ would be a function that inputs an integer $N$ and outputs every number up to $N$:
 \begin{python}
 def linearTime(N):
@@ -89,6 +92,20 @@ The second example is a program that runs in quadratic time, i.e. $O(N^{2})$. In
         for number in range(N):
             for number in range(N):
                 print(number)
+\end{python}
+
+\vspace{5mm}
+
+The third program describes $O(\sqrt{n})$. It is a simple program that sums all numbers up to $\sqrt{N}$.
+
+\begin{python}
+    import math
+
+    def sqrtTime(N):
+        sum = 0
+        for numbers in range(math.sqrt(N)):
+            sum = sum + numbers
+        print(sum)
 \end{python}
 
 \vspace{5mm}
