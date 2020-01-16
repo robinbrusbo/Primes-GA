@@ -2,7 +2,7 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
-\subsection{What is a prime?}
+\subsection{What Is a Prime?}
 Prime numbers are defined as \textit{positive integers} which only have the factors 1 and itself. Thus $4$ is not a prime since $4 = 2 * 2$. On the other hand $5$ is a prime since the only divisors of $5$ is $1$ and $5$. An exception to this definition is $1$, since it's the first natural number.
 
 If a number, $n$, is not prime, it is refered to as a \textit{composite number}.
@@ -66,13 +66,10 @@ This proves that primes do not show up linearaly, meaning a computer that is twi
 Time complexity \cite{theorem:time_comp} is a concept within computer science, which describes the approximate time for a program to complete. The study will make heavy use of the Big O Notation \cite{theorem:big_O}, which notates how the run time increases as the input size increases. For example, $O(N)$ will grow linearly with the input size. Increasing the input size by a factor of 10, will also increase the run time by a factor of 10, as such $O(10N)$. On the other hand, $O(log(n))$ grows logarithmically, which is far more efficient for bigger input sizes, as $O(log(N))$ is strictly smaller than $N$ for large enough values. It is important to note that when using logarithms in these instances, the base is irrelevant. The proof as to why the base is irrelevant will not be provided by this study.
 \newline
 \\*
-This is very important when it comes to testing large numbers, because it makes it easier to determine whether the program will succeed, or run for a \textit{very long time}\footnote{Some programs will not finish until the sun explodes, which is quite impractical.}. Therefore it is important to write as efficient algorithms as possible, considering the fact that the largest known verified prime has $24,862,048$ digits \cite{prime:largest_digits}. 
+The Big O Notation will be used to determine whether an algorithm with a large number, $n$, will succeed or run for a \textit{very long time}\footnote{Some programs will not finish until the sun explodes, which is quite impractical.}. Therefore it is important to write as efficient algorithms as possible, considering the fact that the largest known prime has $24,862,048$ digits \cite{prime:largest_digits}. 
 
 \subsubsection{Examples of Big O Notation}
 
-It is important to have an idea of how the Big O Notation is applied in code, therefore the following examples will show it thoroughly.
-\newline
-\\*
 A program that runs in $O(N)$ would be a function that inputs an integer $N$ and outputs every number up to $N$:
 \begin{python}
 def linearTime(N):
@@ -83,7 +80,7 @@ def linearTime(N):
 Since the program runs in $O(N)$ time, increasing the input by a factor of $10$ would also increase the number of operations done by a factor of $10$.
 \newline
 \\*
-The second example is a program that runs in quadratic time, i.e. $O(N^{2})$. Instead of printing every number up to $N$ once, this program prints every number $N$ times.
+The second example is a program that runs in quadratic time, i.e. $O(N^{2})$. Compared to the first example, this program will print every number up to $N$, $N$ times.
 
 \begin{python}
     def quadraticTime(N):
@@ -97,11 +94,11 @@ The second example is a program that runs in quadratic time, i.e. $O(N^{2})$. In
 The third program describes $O(\sqrt{n})$. It is a simple program that sums all numbers up to $\sqrt{N}$.
 
 \begin{python}
-    import math
+    from math
 
     def sqrtTime(N):
         sum = 0
-        for number in range(math.sqrt(N)):
+        for number in range(math.isqrt(N)):
             sum += number
         print(sum)
 \end{python}
@@ -112,24 +109,23 @@ The fourth and last example will be about $O(log (n))$. The algorithm that is us
 
 \begin{python}
     def binarySearch():
-        print("The number will be between _ and _\n")
-        begin = int(input())
+        begin = int(input("The number will be between _ and _\n"))
         end = int(input())
         value = int(input("What value will you input?\n"))
         guesses = 0
 
         while True:
-            guesses += 1             
-            mid = (begin + end) / 2
+            guesses += 1
+            mid = int((begin + end) / 2)
 
-            if mid == valueToGuess:
+            if mid > value:
+                end = mid - 1
+            elif mid < value:
+                begin = mid + 1
+            else:
                 break
-            elif mid > valueToGuess:
-                end = mid + 1
-            elif mid < valueToGuess:
-                begin = mid - 1
 
-        print(guesses)
+    print(guesses)
 
 \end{python}
 

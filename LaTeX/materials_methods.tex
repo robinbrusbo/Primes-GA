@@ -32,7 +32,7 @@ The function will be called upon three times to average an "accurate" runtime. T
 
 \begin{python}
     import time
-    # from ALGORITHM_FILE import ALGORITHM
+    # from FILE import ALGORITHM
 
     def driver():
         numbers = [...] # Values to be appended
@@ -45,7 +45,7 @@ The function will be called upon three times to average an "accurate" runtime. T
         print(sum(times) / len(times))
 
     def primeTest(n):
-        if Algorithm(n): # Algorithm function
+        if ALGORITHM(n): # Algorithm function
             return True
         return False
 
@@ -53,11 +53,10 @@ The function will be called upon three times to average an "accurate" runtime. T
         driver()
 \end{python}
 
-Important to note is that the algorithms will be stored in a seperate file. At the beginning of the main file the algorithms will be imported. To see further details and the $.py$ files, refer to the essays GitHub page \cite{github}.
-
-\vspace{10mm}
-
-To generate the largest prime within 30 seconds, the \textbf{primeTest} function will remain the same, however the driver function will recieve some changes. Study the following code:
+The algorithms will be stored in a seperate file, hence the \textit{from FILE import ALGORITHM} at the top of the code. To see further details and the $*.py$ files, refer to the essays GitHub page \cite{github}.
+\newline
+\\*
+To generate the largest prime within $30$ seconds, the \textbf{primeTest} function will remain the same, however the driver function will recieve some changes:
 
 \begin{python}
     def driver():
