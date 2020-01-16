@@ -74,13 +74,54 @@ To generate the largest prime within $30$ seconds, the \textbf{primeTest} functi
 
 \subsubsection{Brute-force}
 
+\begin{python}
+    def brute(n):
+        for x in range(2, n):
+            if n % x == 0:
+                return False
+        return True
+\end{python}
+
 \subsubsection{Smart Brute-force}
 
+\begin{python}
+    import math
+
+    def smartBrute(n):
+        if n == 1:
+            return False
+        if n == 2:
+            return True
+        for x in range(3, math.sqrt(n), 2):
+            if n % x == 0:
+                return False
+        return True
+\end{python}
+
 \subsubsection{Sieve of Eratosthenes}
+
+\begin{python}
+    import math
+
+    def sieve(N):
+        length = N + 1
+        nums = [True] * length
+
+        for i in range(2, math.isqrt(length)):
+            if not nums[i]:
+                continue
+            for j in range(i + 1, length):
+                if j % i == 0:
+                    nums[j] = False
+
+        # Print all primes
+        for x in range(2, length):
+            if nums[x]:
+                print(x)
+\end{python}
 
 \subsubsection{Fermat Primality}
 
 \subsubsection{Miller–Rabin}
-
 
 \end{document}
