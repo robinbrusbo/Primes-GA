@@ -1,9 +1,22 @@
-# Gymnasiearbete
-
-## Prime Numbers
-
-### Understanding How the Largest Primes Came To Be
+# Gymnasiearbete - Prime Numbers
 
 main.pdf is found in LaTeX/Build
 
-TO BE ADDED
+DESCRIPTION HERE LATER
+
+## Built With
+
+-   [LaTeX](https://www.latex-project.org/) - The typesetting system for the entire essay
+-   [Python](https://www.python.org/) - The programming language to perform the tests
+
+## Authors
+
+-   **Ibrahim Abdulhussein** - [flyslime](https://github.com/flyslime)
+-   **Robin Brusbo** - [robinbrusbo](https://github.com/robinbrusbo)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## Acknowledgments
+
+-   Björn Norén
+-   Jonas Ingesson
