@@ -1,4 +1,4 @@
-# Gymnasiearbete - Prime Numbers
+# Prime Numbers - Gymnasiearbete
 
 main.pdf is found in LaTeX/Build
 
