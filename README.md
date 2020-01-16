@@ -14,8 +14,6 @@ DESCRIPTION HERE LATER
 -   **Ibrahim Abdulhussein** - [flyslime](https://github.com/flyslime)
 -   **Robin Brusbo** - [robinbrusbo](https://github.com/robinbrusbo)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
 ## Acknowledgments
 
 -   Björn Norén
