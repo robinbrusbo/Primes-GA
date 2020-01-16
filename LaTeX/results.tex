@@ -3,35 +3,6 @@
 \begin{document}
 
 \subsection{Primality Testing}
-There are many different ways to test if a natural number, $n$, is prime or composite. The most trivial way is to check every number from $2$ to $n - 1$ and see whether or not they divide $n$ evenly. If no natural number is a factor of $n$, the program will return that $n$ is a prime. The described algorithm is usually called \textit{Brute-force}. 
-
-\begin{python}
-def primeTest(n):
-    for i in range(2, p - 1):
-        if n % i == 0:
-            return "Composite"
-    return "Prime"
-\end{python}
-
-The run time of this algorithm was XXX seconds. This method runs in $O(n)$ time, which is relatively slow.  $O(n)$ lets us check numbers less than or equal to approximately XXX. Compared to other methods, this turned out to be the slowest.
-
-This method can be improved quite a bit though after realizing two important things:
-1. We do not need to check all integers up to p, it is sufficient only to test numbers up to sqrt(p)
-2. We do not need to check any even numbers, except for the number 2. This is because all even numbers have 2 as a factor, and therefore 2 would already be a known factor of p, thus concluding that p is composite.
-
-Rewriting the program:
-
-\begin{python}
-def primeTest(n):
-    if n % 2 == 0 or n % 3 == 0:
-        return "Composite"
-    for i in range(5, sqrt(n)):
-        if n % i == 0:
-            return "Composite"
-    return "Prime"
-\end{python}
-
-This resulted in the run time of XXX seconds. The time complexity. 
 
 \begin{table}[ht!]
     \centering
@@ -56,9 +27,7 @@ This resulted in the run time of XXX seconds. The time complexity.
     \end{tabular}
     \caption{The summed averages of the above results}
 \end{table}
-    
-   
-   
+
 
 \subsection{Generating Largest Prime}
 

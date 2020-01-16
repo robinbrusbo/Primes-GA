@@ -2,10 +2,8 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
-In order to fully understand this essay, some key concepts have to be adressed and understood.
-
 \subsection{What is a prime?}
-Prime numbers are defined as \textit{positive integers} which only have the factors 1 and itself. Thus $4$ is not a prime since $4 = 2 * 2$. On the other hand $5$ is a prime since the only divisors of $5$ is $1$ and $5$. 
+Prime numbers are defined as \textit{positive integers} which only have the factors 1 and itself. Thus $4$ is not a prime since $4 = 2 * 2$. On the other hand $5$ is a prime since the only divisors of $5$ is $1$ and $5$. An exception to this definition is $1$, since it's the first natural number.
 
 If a number, $n$, is not prime, it is refered to as a \textit{composite number}.
 
@@ -103,35 +101,35 @@ The third program describes $O(\sqrt{n})$. It is a simple program that sums all 
 
     def sqrtTime(N):
         sum = 0
-        for numbers in range(math.sqrt(N)):
-            sum = sum + numbers
+        for number in range(math.sqrt(N)):
+            sum += number
         print(sum)
 \end{python}
 
 \vspace{10mm}
 
-The fourth and last example will be about $O(log n)$. The algorithm that is used in this example is called \textit{Binary Search} \cite{binary_search}. It's an algorithm used for quickly guessing a number between, for example, $1$ and $100$. Usually two people are required to play this guessing game, but with a computer the user will be guessing whether it's true or false, while the computer generates a random number.
+The fourth and last example will be about $O(log (n))$. The algorithm that is used in this example is called \textit{Binary Search} \cite{binary_search}. It's an algorithm used for quickly guessing a number between, for example, $1$ and $100$. Usually two players are required to play this guessing game, but with a computer the user will give an input that the computer will try to guess. The output will be the amount of "guesses" the algorithm perfomed.
 
 \begin{python}
-    import random as rand
-
     def binarySearch():
-        begin = 1
-        end = 100
-        valueToGuess = rand.randint(1, 101)
-        while True:
-            mid = (begin + end) / 2
-            guess = int(input())
+        print("The number will be between _ and _\n")
+        begin = int(input())
+        end = int(input())
+        value = int(input("What value will you input?\n"))
+        guesses = 0
 
-            if guess == valueToGuess:
-                print("Right!")
-                return
-            elif guess > valueToGuess:
+        while True:
+            guesses += 1             
+            mid = (begin + end) / 2
+
+            if mid == valueToGuess:
+                break
+            elif mid > valueToGuess:
                 end = mid + 1
-                print("Lower!")
-            elif guess < valueToGuess:
+            elif mid < valueToGuess:
                 begin = mid - 1
-                print("Higher!")                
+
+        print(guesses)
 
 \end{python}
 

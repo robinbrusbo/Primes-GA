@@ -9,7 +9,7 @@ The most important resource to be used in this study will be Wikipedia and the c
 As of today, the largest primes are found using supercomputers running these algorithms. Using a supercomputer is not plausible for this study, therefore the maxmimum limit for primes will be $10^{14}$.
 
 \subsection{Methods}
-During the primality testing \cite{prime:test} there will be two test cases for the algorithms. The first one will determine if $n$ is a prime or composite, and the second one will generate the largest prime within a time limit. At the start of the code a driver function will be defined to serve as the "starter" code for the program - defining what test to perform. The driver function will call a primality testing function called \textbf{primeTest} which will return a boolean\footnote{A function that returns $True$ or $False$} value. 
+During the primality testing \cite{prime:test} there will be two test cases for the algorithms. The first one will determine if $n$ is a prime or composite, and the second one will generate the largest prime within a time limit. At the start of the code a driver function will be defined to serve as the "starter" code for the program - deciding what test to perform. The driver function will call a primality testing function called \textbf{primeTest} which will return a boolean\footnote{A function that returns $True$ or $False$} value. 
 
 Two groups of algorithms will be tested: the "simple" methods and the probabilistic tests. The driver function will be called to start a timer and execute one of the following algorithms:
 \begin{enumerate}
@@ -32,11 +32,10 @@ The function will be called upon three times to average an "accurate" runtime. T
 
 \begin{python}
     import time
-
-    driver()
+    # from ALGORITHM_FILE import ALGORITHM
 
     def driver():
-        numbers = [...]
+        numbers = [...] # Values to be appended
         times = []
         for n in numbers:
             start = time.time()
@@ -46,8 +45,15 @@ The function will be called upon three times to average an "accurate" runtime. T
         print(sum(times) / len(times))
 
     def primeTest(n):
-        # Insert the algorithm here
+        if Algorithm(n): # Algorithm function
+            return True
+        return False
+
+    if __name__ == "__main__":
+        driver()
 \end{python}
+
+Important to note is that the algorithms will be stored in a seperate file. At the beginning of the main file the algorithms will be imported. To see further details and the $.py$ files, refer to the essays GitHub page \cite{github}.
 
 \vspace{10mm}
 
@@ -55,18 +61,27 @@ To generate the largest prime within 30 seconds, the \textbf{primeTest} function
 
 \begin{python}
     def driver():
+        n = 2
         primes = []
-        timelimit = 30
-        start = time.time()
-        for n in range(time.time() - start < timelimit):
+        timelimit = time.time() + 30  # Thirty seconds limit
+        while (time.time() < timelimit):
             if primeTest(n):
                 primes.append(n)
+            n += 1
         print(max(primes))
 \end{python}
 
 \subsection{Algorithms}
-Explain the algorithms and "tricks" to make them run faster. The results must only be tables of runtimes of the different algorithms.
 
-Sieve of Erathsoneirnsn is 
+\subsubsection{Brute-force}
+
+\subsubsection{Smart Brute-force}
+
+\subsubsection{Sieve of Eratosthenes}
+
+\subsubsection{Fermat Primality}
+
+\subsubsection{Miller–Rabin}
+
 
 \end{document}
