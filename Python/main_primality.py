@@ -1,4 +1,5 @@
 import time
+from smart_brute import smartBrute
 # from FILE import FUNCTION
 
 
@@ -14,11 +15,8 @@ def driver():
 
 
 def primeTest(n):
-    brute(n)
+    smartBrute(n)
 
 
 if __name__ == "__main__":
     driver()
-
-# def primeTest(n):
-# Insert the algorithm here
