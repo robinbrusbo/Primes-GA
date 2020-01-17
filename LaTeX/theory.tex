@@ -30,7 +30,7 @@ Important to know is that there is an infinite amount of primes. The proof is a 
 \subsection{The Prime Number Theorem}
 The Prime Number Theorem \cite{theorem:prime_num} describes approximately how many primes there are less than or equal to a given number. The function $\pi(N) \sim \frac{N}{ln(N)}$ gives the expected amount of primes below a certain $N$. Graphing this function shows that primes become less common for greater $N$.
 
-\begin{figure}
+\begin{figure}[h]
     \begin{center}
         \begin{tikzpicture}
             \begin{axis}[
@@ -39,19 +39,17 @@ The Prime Number Theorem \cite{theorem:prime_num} describes approximately how ma
                 ylabel = {},
             ]
             \addplot [
-                domain=1:100000, 
+                domain=0:100000, 
                 samples=100, 
                 color=red,
-            ]
-            {x/ln(x)};
+            ]{x/ln(x)};
             \addlegendentry{$\frac{N}{ln(N)}$}
             
             \addplot [
-                domain=1:100000, 
+                domain=0:100000, 
                 samples=100, 
                 color=blue,
-                ]
-                {x};
+            ]{x};
             \addlegendentry{$N$}
             \end{axis}
         \end{tikzpicture}
@@ -69,6 +67,51 @@ Time complexity \cite{theorem:time_comp} is a concept within computer science, w
 The Big O Notation will be used to determine whether an algorithm with a large number, $n$, will succeed or run for a \textit{very long time}\footnote{Some programs will not finish until the sun explodes, which is quite impractical.}. Therefore it is important to write as efficient algorithms as possible, considering the fact that the largest known prime has $24,862,048$ digits \cite{prime:largest_digits}. 
 
 \subsubsection{Examples of Big O Notation}
+
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis lines = left,
+                ymin=0, ymax=50,
+                xlabel = {},
+                ylabel = {},
+            ]
+            \addplot [
+                domain=0:50, 
+                samples=100, 
+                color=red,
+            ]{x};
+            \addlegendentry{$O(n)$}
+            
+            \addplot [
+                domain=0:50,
+                samples=100, 
+                color=blue,
+                ]{x^2};
+            \addlegendentry{$O(n^2)$}
+
+            \addplot [
+                domain=0:50,
+                samples=100, 
+                color=green,
+                ]{sqrt(x)};
+            \addlegendentry{$O(\sqrt{n})$}
+
+            \addplot [
+                domain=0:50,
+                samples=100, 
+                color=black,
+                ]{ln(x)};
+            \addlegendentry{$O(log(n))$}
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+\caption{The graph does a lot of stuff. The graph does a lot of stuff. The graph does a lot of stuff. The graph does a lot of stuff. The graph does a lot of stuff. The graph does a lot of stuff. The graph does a lot of stuff.}
+\end{figure}
+
+\vspace{10mm}
 
 A program that runs in $O(N)$ would be a function that inputs an integer $N$ and outputs every number up to $N$:
 \begin{python}
@@ -105,7 +148,7 @@ The third program describes $O(\sqrt{n})$. It is a simple program that sums all 
 
 \vspace{10mm}
 
-The fourth and last example will be about $O(log (n))$. The algorithm that is used in this example is called \textit{Binary Search} \cite{binary_search}. It's an algorithm used for quickly guessing a number between, for example, $1$ and $100$. Usually two players are required to play this guessing game, but with a computer the user will give an input that the computer will try to guess. The output will be the amount of "guesses" the algorithm perfomed.
+The fourth and last example will be about $O(log (n))$. The algorithm that is used in this example is called \textit{Binary Search} \cite{algh:binary_search}. It's an algorithm used for quickly guessing a number between, for example, $1$ and $100$. Usually two players are required to play this guessing game, but with a computer the user will give an input that the computer will try to guess. The output will be the amount of "guesses" the algorithm perfomed.
 
 \begin{python}
     def binarySearch():
