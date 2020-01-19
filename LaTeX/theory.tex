@@ -61,10 +61,10 @@ This proves that primes do not show up linearaly, meaning a computer that is twi
 
 \subsection{Time Complexity}
 
-Time complexity \cite{theorem:time_comp} is a concept within computer science, which describes the approximate time for a program to complete. The study will make heavy use of the Big O Notation \cite{theorem:big_O}, which notates how the run time increases as the input size increases. For example, $O(N)$ will grow linearly with the input size. Increasing the input size by a factor of 10, will also increase the run time by a factor of 10, as such $O(10N)$. On the other hand, $O(log(n))$ grows logarithmically, which is far more efficient for bigger input sizes, as $O(log(N))$ is strictly smaller than $N$ for large enough values. It is important to note that when using logarithms in these instances, the base is irrelevant. The proof as to why the base is irrelevant will not be provided by this study.
+Time complexity \cite{theorem:time_comp} is a concept within computer science, which describes the approximate time for a program to complete. The study will make heavy use of the Big O Notation \cite{theorem:big_O}, which notates how the run time increases as the input size increases. For example, $O(N)$ will grow linearly with the input size. Increasing the input size by a factor of 10, will also increase the run time by a factor of 10, as such $O(10N)$. On the other hand, $O(log(n))$ grows logarithmically, which is far more efficient for bigger input sizes, as $O(log(N))$ is strictly smaller than $N$ for large enough values. The base for logarithms in the Big O Notation is not relevant. The proof as to why the base is irrelevant will not be provided by this study.
 \newline
 \\*
-The Big O Notation will be used to determine whether an algorithm with a large number, $n$, will succeed or run for a \textit{very long time}\footnote{Some programs will not finish until the sun explodes, which is quite impractical.}. Therefore it is important to write as efficient algorithms as possible, considering the fact that the largest known prime has $24,862,048$ digits \cite{prime:largest_digits}. 
+The Big O Notation will be used to determine whether an algorithm with a large number, $n$, will succeed or run for a \textit{very long time}\footnote{Some programs will not finish until the sun explodes, which is quite impractical.}. Considering that the largest known prime is $24,862,048$ digits \cite{prime:largest_digits}, algorithms have to be efficient to perform a primality test. 
 
 \subsubsection{Examples of Big O Notation}
 
@@ -160,7 +160,6 @@ The fourth and last example will be about $O(log (n))$. The algorithm that is us
         while True:
             guesses += 1
             mid = int((begin + end) / 2)
-
             if mid > value:
                 end = mid - 1
             elif mid < value:
