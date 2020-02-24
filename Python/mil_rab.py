@@ -1,19 +1,32 @@
-def MilRab(n, k):
-    if n == 2:
-        return True
-    if n % 2:
-        return False
+import random
 
 
-write n as 2r·d + 1 with d odd(by factoring out powers of 2 from n − 1)
-WitnessLoop: repeat k times:
-    pick a random integer a in the range[2, n − 2]
-    x ← ad mod n
-    if x = 1 or x = n − 1 then
-    continue WitnessLoop
-    repeat r − 1 times:
-        x ← x2 mod n
-        if x = n − 1 then
-        continue WitnessLoop
-    return “composite”
-return “probably prime”
+def findIntegers(n):
+    counter = 0
+    number = n - 1
+    while number % 2 == 0:
+        counter += 1
+        number //= 2
+    return(counter, number)
+
+
+def MillerRabin(n, k):
+    for i in range(k):
+        a = random.randint(2, n - 2)
+        x = pow(a, d) % n
+        if x == 1 or x == n - 1:
+            return "owo"
+        for j in range(r - 1):
+            x = (x ** x) % n
+            if x == 1:
+                return "comp"
+            elif x == n - 1:
+                return "owo"
+
+
+if __name__ == "__main__":
+    k = 5
+    for n in range(5, 20):
+        r, d = findIntegers(n)
+        print(2**r * d + 1)
+        print(MillerRabin(n, k))
