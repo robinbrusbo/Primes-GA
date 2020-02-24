@@ -10,23 +10,16 @@ def findIntegers(n):
     return(counter, number)
 
 
-def MillerRabin(n, k):
+def millerRabin(n, k):
     for i in range(k):
+        print(i)
         a = random.randint(2, n - 2)
-        x = pow(a, d) % n
+        x = pow(a, d, n)
         if x == 1 or x == n - 1:
-            return "owo"
+            continue
         for j in range(r - 1):
-            x = (x ** x) % n
+            x = pow(x, 2, n)
             if x == 1:
-                return "comp"
-            elif x == n - 1:
-                return "owo"
-
-
-if __name__ == "__main__":
-    k = 5
-    for n in range(5, 20):
-        r, d = findIntegers(n)
-        print(2**r * d + 1)
-        print(MillerRabin(n, k))
+                return "composite"
+        return "composite"
+    return "probably prime"
