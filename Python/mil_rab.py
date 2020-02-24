@@ -11,13 +11,14 @@ def findIntegers(n):
 
 
 def millerRabin(n, k):
-    for i in range(k):
-        print(i)
+    r, d = findIntegers(n)
+    # Use _ as "index" variable - means no declared variable
+    for _ in range(k):
         a = random.randint(2, n - 2)
         x = pow(a, d, n)
         if x == 1 or x == n - 1:
             continue
-        for j in range(r - 1):
+        for _ in range(r - 1):
             x = pow(x, 2, n)
             if x == 1:
                 return "composite"
