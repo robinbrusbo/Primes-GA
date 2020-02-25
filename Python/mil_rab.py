@@ -13,7 +13,8 @@ def findIntegers(n):
 def millerRabin(n, k):
     r, d = findIntegers(n)
     # Use _ as "index" variable - means no declared variable
-    for _ in range(k):
+    for i in range(k):
+        print(i)
         a = random.randint(2, n - 2)
         x = pow(a, d, n)
         if x == 1 or x == n - 1:
@@ -24,3 +25,6 @@ def millerRabin(n, k):
                 return "composite"
         return "composite"
     return "probably prime"
+
+
+print(millerRabin(2 ** 23209 - 1, 10))

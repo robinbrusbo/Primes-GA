@@ -41,6 +41,7 @@
 %---References------------------------------------------
 \usepackage[style=numeric, backend=biber]{biblatex}
 \addbibresource{references.bib}
+\addbibresource{appendix.bib}
 %-------------------------------------------------------
 
 %---Makes Table of Contents clickable-------------------
@@ -120,7 +121,13 @@
 \section{References}
 
 \emergencystretch=0.25em
-\printbibliography[heading=none]
+\printbibliography[heading=none, notkeyword=appendix]
+
+\newpage
+%-------------------------------------------------------
+\section{Appendix}
+
+\printbibliography[heading=none, keyword=appendix]
 
 \newpage
 %-------------------------------------------------------
